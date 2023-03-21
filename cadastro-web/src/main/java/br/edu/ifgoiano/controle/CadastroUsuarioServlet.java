@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/cadastroUsuario")
 public class CadastroUsuarioServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3572994547498409627L;
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
