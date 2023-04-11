@@ -45,7 +45,7 @@ public class CadastroUsuarioServlet extends HttpServlet {
 			resp.sendRedirect("index.html");
 			
 		}else {
-			req.getRequestDispatcher("cadastroDeUsuario.html").forward(req, resp);
+			req.getRequestDispatcher("usuarioCadastro.jsp").forward(req, resp);
 		}
 		
 	}
