@@ -28,7 +28,7 @@
 	    	<h1>Cadastro de Usuário</h1>
 	    	
 	    	<label for="nome">Nome:</label>
-	        <input type="text" name="nome" id="nome" value="<% out.print(nome); %>"><br>
+	        <input type="text" name="nome" id="nome" value="${param.nome}"><br>
 	        
 	        <label for="email">E-mail:</label>
 	        <input type="text" name="email" id="email" value="<%=email%>"><br>
@@ -44,19 +44,13 @@
 	        <a class="btn btn-primary" href="cadastroUsuario" role="button">Listar Usuários</a>
 	        <a class="btn btn-primary" href="index.html" role="button">Voltar</a>
     	</form>
+	    <%if(!nome.isEmpty()){ %>
+	    		<div class="alert alert-danger" role="alert">
+	    		 	<%=nome%><span>, as senhas informadas não são iguais.</span> 
+	    		</div>
+	    		
+	    <%}%>
 	</div>
 	
-    <%
-    	String senha1 = request.getParameter("senha1");
-    	String senha2 = request.getParameter("senha2");
-    	
-    	if(senha1 != senha2){ 
-    		out.print()%>
-    		<div class="alert alert-danger" role="alert">
-    		  <%nome%> + 
-    		</div>
-    		
-    	}
-    %>
 </body>
 </html>
