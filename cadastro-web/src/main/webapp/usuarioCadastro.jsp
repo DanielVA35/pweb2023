@@ -43,6 +43,7 @@
 	        <input type="submit" value="Salvar">
 	        
 	        <a class="btn btn-primary" href="cadastroUsuario" role="button">Listar Usuários</a>
+	        
 	        <a class="btn btn-primary" href="index.html" role="button">Voltar</a>
     	</form>
     	<c:if test="${not empty param.nome }">
