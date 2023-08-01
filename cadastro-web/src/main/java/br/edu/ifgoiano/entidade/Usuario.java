@@ -3,7 +3,8 @@ package br.edu.ifgoiano.entidade;
 import java.util.Date;
 
 public class Usuario {
-	private Integer incremento = 1;
+	
+	private static Integer incremento = 1;
 	
 	private Integer id;
 	private String email;
@@ -14,11 +15,7 @@ public class Usuario {
 	public Usuario() {
 		this.id = incremento++;
 	}
-	
-	public String getEmail() {
-		return email;
-	}
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -27,35 +24,42 @@ public class Usuario {
 		this.id = id;
 	}
 
+
+
+	public String getEmail() {
+		return email;
+	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	public String getSenha() {
 		return senha;
 	}
-	
+
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
-	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
 	public Date getDataNascimento() {
 		return dataNascimento;
 	}
-	
+
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-	
+		
 	public Integer obterIdade() {
+		//FIXME: Implementar a lógica para obter a idade com base na data de nascimento
 		return 0;
 	}
 }

@@ -16,22 +16,19 @@ public class LoginServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println(req.getParameter("email"));
-		System.out.println(req.getParameter("senha"));
+		String email = req.getParameter("email");
+		String senha = req.getParameter("senha");
 		
-		String htmlSucesso = new String();
-		htmlSucesso = "<html><body><h1>Login realizado com sucesso!</h1></body></html>";
-		
-		String htmlFalha = new String();
-		htmlFalha = "<html><body><h1>Falha no login: e-mail e/ou senha inv·lido(s).</h1></body></html>";
-			
-		if(req.getParameter("senha").equals("123456")){
-			PrintWriter writer = resp.getWriter();
-			writer.println(htmlSucesso);
+		String html = new String();
+
+		if(senha.equals("123456")) {
+			html = "<html><body><h1>Login realizado com sucesso!</h1></body></html>";
 		}else {
-			PrintWriter writer = resp.getWriter();
-			writer.println(htmlFalha);
+			html = "<html><body><h1>Falha: usuario ou senha inv√°lidos</h1></body></html>";
 		}
+		
+		PrintWriter writer = resp.getWriter();
+		writer.println(html);
 	}
 }
 
