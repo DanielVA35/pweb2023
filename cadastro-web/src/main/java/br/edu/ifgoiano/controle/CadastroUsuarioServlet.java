@@ -32,8 +32,6 @@ public class CadastroUsuarioServlet extends HttpServlet {
 			usuario.setSenha(senha1);
 			
 			UsuarioRepositorio repositorio = new UsuarioRepositorio();
-			
-	
 			repositorio.inserirUsuario(usuario);
 			
 			//redirecionar o usuário para a página de login
