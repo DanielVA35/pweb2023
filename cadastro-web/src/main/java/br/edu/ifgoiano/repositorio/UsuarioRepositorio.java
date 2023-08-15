@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.management.RuntimeErrorException;
+
 import br.edu.ifgoiano.entidade.Usuario;
 
 public class UsuarioRepositorio {
@@ -74,9 +76,31 @@ public class UsuarioRepositorio {
 			System.out.println("Erro na inclusão de usuario");
 			e.printStackTrace();
 		}
+	}
+	public Usuario obterUsuario(Integer id) {
+		String sql = "select nome, email, senha from usuario where id = ?";
 		
+		try( Connection conn = this.getConnection();
+				PreparedStatement pst = conn.prepareStatement(sql);){
+			pst.setInt(1, id);
+			
+			ResultSet resultSet = pst.executeQuery();
+			
+			while(resultSet.next()) {
+				Usuario usuario = new Usuario();
+				usuario.setId(id);
+				usuario.setNome(resultSet.getString("nome"));
+				usuario.setEmail(resultSet.getString("email"));
+				usuario.setSenha(resultSet.getString("senha"));
+				
+				return usuario;
+			}
+		}catch(SQLException ex) {
+			System.out.println("Erro na consulta de usuarios");
+			ex.printStackTrace();
+		}
 		
-		
+		throw new RuntimeErrorException(null, "Usuário não encontrado");
 	}
 	
 	
