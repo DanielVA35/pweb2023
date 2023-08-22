@@ -16,7 +16,7 @@
 <body>
 	<div class="container-fluid">
 		<h1>Alteração Usuário</h1>
-		<form method="post" action="cadastrarUsuario">
+		<form method="post" action="alterarUsuario">
 			<input type="hidden" name="id" value="${usuario.id }">
 			<label for="nome">Nome:</label>
 			<input type="text" name="nome" value="${usuario.nome}">
@@ -27,8 +27,7 @@
 			<label for="senha2">Senha confirmada:</label>
 			<input type="password" name="senha2"><br><br>
 			<input type="submit" value="Salvar" class="btn btn-primary">
-			<a class="btn btn-secondary" href="cadastrarUsuario" role="button">Listar Usuários</a>
-			<a class="btn btn-secondary" href="usuarioListagem.jsp" role="button">Voltar</a>
+			<a class="btn btn-secondary" href="cadastrarUsuario" role="button">Voltar</a>
 		</form>
 		<c:if test="${not empty mensagem}">
 			<hr>

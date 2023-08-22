@@ -63,7 +63,6 @@ public class UsuarioRepositorio {
 				pst.setString(1, usuario.getNome());
 				pst.setString(2, usuario.getEmail());
 				pst.setString(3, usuario.getSenha());
-				pst.execute();
 				
 		
 			
@@ -101,6 +100,39 @@ public class UsuarioRepositorio {
 		}
 		
 		throw new RuntimeErrorException(null, "Usuário não encontrado");
+	}
+
+
+	public void alterarUsuario(Usuario usuario) {
+		//Criar a SQL de alterar
+		StringBuilder sql = new StringBuilder();
+		sql.append("update usuario set ");
+		sql.append("nome = ?, ");
+		sql.append("email = ?, ");
+		sql.append("senha = ? ");
+		sql.append("where id = ?");
+		
+		//Abrir uma conexão
+		try(Connection conn = this.getConnection();
+				
+		//Preparar a SQL para ser executada
+				PreparedStatement pst = conn.prepareStatement(sql.toString());
+				) {
+				pst.setString(1, usuario.getNome());
+				pst.setString(2, usuario.getEmail());
+				pst.setString(3, usuario.getSenha());
+				pst.setInt(4, usuario.getId());
+
+		//Executar a SQL
+			pst.execute();
+			
+			conn.commit();
+			
+		} catch (SQLException e) {
+			System.out.println("Erro na alteração de usuario");
+			e.printStackTrace();
+		}
+		
 	}
 	
 	
