@@ -8,7 +8,7 @@
 		"id":null,
 		"logradouro":"Rua 5",
 		"Bairro":"Oeste",
-		"complemento":"potao de grade",
+		"complemento":"portao de grade",
 		"cep":"75390700",
 		"cidade":"Trindade",
 		"estado":"GO"
